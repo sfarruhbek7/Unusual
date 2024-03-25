@@ -263,7 +263,7 @@
                                   family: "Open Sans",
                                   style: 'normal',
                                   lineHeight: 2
-                              },
+                              },wwwwwwdwdadwwwwwwwwwwwwwwwwwdawdadad
                           }
                       },
                       x: {
@@ -319,7 +319,7 @@
                       <td>
                         <div class="d-flex px-2">
                           <div class="my-auto">
-                            <h6 class="mb-0 text-sm">@if(12-$i>0) {{12-$i}}-december @else {{12+30-$i}}-november @endif </h6>
+                            <h6 class="mb-0 text-sm">@if(26-$i>0) {{26-$i}}-march @else {{26+30-$i}}-fevral @endif </h6>
                           </div>
                         </div>
                       </td>
@@ -338,9 +338,12 @@
                         <div class="d-flex align-items-center justify-content-center">
                           <span class="me-2 text-xs font-weight-bold">{{rand(1,100)}} °C</span>
                         </div>
+
+                        x
                       </td>
                     </tr>
 @endfor
+
                   </tbody>
                 </table>
               </div>

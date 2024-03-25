@@ -79,7 +79,7 @@
         // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
 
         // the link to your model provided by Teachable Machine export panel
-        const URL = "https://teachablemachine.withgoogle.com/models/Mb_3ibrPl/";
+        const URL = "https://teachablemachine.withgoogle.com/models/52_FjHFgW/";
 
         let model, webcam, labelContainer, maxPredictions;
 
@@ -116,8 +116,10 @@
             window.requestAnimationFrame(loop);
         }
         let a=[
-            {subject: "Lemon", text: "The lemon (Citrus × limon) is a species of small evergreen tree in the flowering plant family Rutaceae, native to Asia, primarily Northeast India (Assam), Northern Myanmar, or China.[2]. The tree's ellipsoidal yellow fruit is used for culinary and non-culinary purposes throughout the world, primarily for its juice, which has both culinary and cleaning uses.[2] The pulp and rind are also used in cooking and baking. The juice of the lemon is about 5-6% citric acid,[citation needed] with a pH of around 2.2,[3] giving it a sour taste. The distinctive sour taste of lemon juice, derived from the citric acid, makes it a key ingredient in drinks and foods[4] such as lemonade and lemon meringue pie"},
-            {subject: "Magnolia", text: "Magnolia is an ancient genus that appeared before bees evolved,[when?] they are theorized to have evolved to encourage pollination by beetles instead.[2] Fossilized specimens of M. acuminata have been found dating to 20 million years ago, and fossils of plants identifiably belonging to the Magnoliaceae date to 95 million years ago.[3] Another aspect of Magnolia considered to represent an ancestral state is that the flower bud is enclosed in a bract rather than in sepals; the perianth parts are undifferentiated and called tepals rather than distinct sepals and petals. Magnolia shares the tepal characteristic with several other flowering plants near the base of the flowering plant lineage, such as Amborella and Nymphaea (as well as with many more recently derived plants, such as Lilium)."}
+            {subject: "", text: ""},
+            {subject: "Gladiolus", text: "" + "Gladioli grow from round, symmetrical corms[7] (similar to crocuses) that are enveloped in several layers of brownish, fibrous tunics.[8] Their stems are generally unbranched, producing 1 to 9 narrow, sword-shaped, longitudinal grooved leaves, enclosed in a sheath.[2] The lowest leaf is shortened to a cataphyll. The leaf blades can be plane or cruciform in cross section. The flowers of unmodified wild species vary from very small to perhaps 40 mm across, and inflorescences bearing anything from one to several flowers. The spectacular giant flower spikes in commerce are the products of centuries of hybridisation and selection. The flower spikes are large and one-sided, with secund, bisexual flowers, each subtended by 2 leathery, green bracts. The sepals and the petals are almost identical in appearance, and are termed tepals. They are united at their base into a tube-shaped structure. The dorsal tepal is the largest, arching over the three stamens. The outer three tepals are narrower. The perianth is funnel-shaped, with the stamens attached to its base. The style has three filiform, spoon-shaped branches, each expanding towards the apex.[9] The ovary is 3-locular with oblong or globose capsules,[9] containing many, winged brown, longitudinally dehiscent seeds"},
+            {subject: "Calendula", text: "Calendula was not a major medicinal herb but it was used in historic times for headaches, red eye, fever and toothaches. As late as the 17th century Nicholas Culpeper claimed Calendula benefited the heart, but it was not considered an especially efficacious medicine.[6] In historic times Calendula was more often used for magical purposes than medicinal ones. One 16th-century potion containing Calendula claimed to reveal fairies. An unmarried woman with two suitors would take a blend of powdered Calendula, marjoram, wormwood and thyme simmered in honey and white wine used as an ointment in a ritual to reveal her true match"},
+            {subject: "", text: ""}
         ]
         // run the webcam image through the image model
         async function predict() {
@@ -128,8 +130,8 @@
                 const classPrediction = prediction[i].className ;
                 if(prediction[i].probability.toFixed(2)>0.99) {
                     // labelContainer.childNodes[i].innerHTML = classPrediction;
-                    document.getElementById('title').innerHTML=a[i-1]['subject'];
-                    document.getElementById('text').innerHTML=a[i-1]['text'];
+                    document.getElementById('title').innerHTML=a[i]['subject'];
+                    document.getElementById('text').innerHTML=a[i]['text'];
                 }
             }
         }
