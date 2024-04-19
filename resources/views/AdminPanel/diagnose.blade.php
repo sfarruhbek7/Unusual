@@ -116,10 +116,10 @@
             window.requestAnimationFrame(loop);
         }
         let a=[
-            {subject: "", text: ""},
-            {subject: "Gladiolus", text: "" + "Gladioli grow from round, symmetrical corms[7] (similar to crocuses) that are enveloped in several layers of brownish, fibrous tunics.[8] Their stems are generally unbranched, producing 1 to 9 narrow, sword-shaped, longitudinal grooved leaves, enclosed in a sheath.[2] The lowest leaf is shortened to a cataphyll. The leaf blades can be plane or cruciform in cross section. The flowers of unmodified wild species vary from very small to perhaps 40 mm across, and inflorescences bearing anything from one to several flowers. The spectacular giant flower spikes in commerce are the products of centuries of hybridisation and selection. The flower spikes are large and one-sided, with secund, bisexual flowers, each subtended by 2 leathery, green bracts. The sepals and the petals are almost identical in appearance, and are termed tepals. They are united at their base into a tube-shaped structure. The dorsal tepal is the largest, arching over the three stamens. The outer three tepals are narrower. The perianth is funnel-shaped, with the stamens attached to its base. The style has three filiform, spoon-shaped branches, each expanding towards the apex.[9] The ovary is 3-locular with oblong or globose capsules,[9] containing many, winged brown, longitudinally dehiscent seeds"},
-            {subject: "Calendula", text: "Calendula was not a major medicinal herb but it was used in historic times for headaches, red eye, fever and toothaches. As late as the 17th century Nicholas Culpeper claimed Calendula benefited the heart, but it was not considered an especially efficacious medicine.[6] In historic times Calendula was more often used for magical purposes than medicinal ones. One 16th-century potion containing Calendula claimed to reveal fairies. An unmarried woman with two suitors would take a blend of powdered Calendula, marjoram, wormwood and thyme simmered in honey and white wine used as an ointment in a ritual to reveal her true match"},
-            {subject: "", text: ""}
+            {subject: "", text: "" + ""},
+            {subject: " ", text: "" + " "},
+            {subject: " ", text: "" + " "},
+            {subject: "Colocasia", text: "They are herbaceous perennial plants with a large corm on or just below the ground surface. The leaves are large to very large, 20–150 cm (7.9–59.1 in) long, with a sagittate shape. The elephant's-ear plant gets its name from the leaves, which are shaped like a large ear or shield. The plant reproduces mostly by means of rhizomes (tubers, corms), but it also produces \"clusters of two to five fragrant inflorescences in the leaf axils\". Like other members of the family, the plant contains an irritant which causes intense discomfort to the lips, mouth and throat. This acridity is caused in part by microscopic needle-like raphides of calcium oxalate monohydrate.[8] It must be processed by cooking, soaking or fermenting – sometimes along with an acid (lime or tamarind) – before being eaten."},
         ]
         // run the webcam image through the image model
         async function predict() {
@@ -128,7 +128,7 @@
             const prediction = await model.predict(webcam.canvas);
             for (let i = 0; i < maxPredictions; i++) {
                 const classPrediction = prediction[i].className ;
-                if(prediction[i].probability.toFixed(2)>0.99) {
+                if(prediction[i].probability.toFixed(2)>0.95) {
                     // labelContainer.childNodes[i].innerHTML = classPrediction;
                     document.getElementById('title').innerHTML=a[i]['subject'];
                     document.getElementById('text').innerHTML=a[i]['text'];
@@ -137,9 +137,5 @@
         }
         init();
     </script>
-
-
-
-
 
 @endsection

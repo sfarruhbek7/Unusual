@@ -13,8 +13,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Humidity</p>
-                    <h5 class="font-weight-bolder">
-                      25%
+                    <h5 id="tdHumidity" class="font-weight-bolder">
                     </h5>
                   </div>
                 </div>
@@ -38,8 +37,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Temp</p>
-                    <h5 class="font-weight-bolder">
-                      25°C
+                    <h5 id="tdTemp" class="font-weight-bolder">
                     </h5>
                   </div>
                 </div>
@@ -63,8 +61,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Wind Speed</p>
-                    <h5 class="font-weight-bolder">
-                      12 m/s
+                    <h5 id="tdWS" class="font-weight-bolder">
                     </h5>
                   </div>
                 </div>
@@ -88,8 +85,7 @@
                 <div class="col-8">
                   <div class="numbers">
                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Precipitation risk</p>
-                    <h5 class="font-weight-bolder">
-                      75%
+                    <h5 id="tdPR" class="font-weight-bolder">
                     </h5>
                   </div>
                 </div>
@@ -176,189 +172,12 @@
 
       <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-          var ctx1 = document.getElementById("chart-line").getContext("2d");
 
-          var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
-
-          gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
-          gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
-          gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
-          new Chart(ctx1, {
-              type: "bar",
-              data: {
-                  labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Sunday", "Saturday"],
-                  datasets: [{
-                      label: "Humidity(%)",
-                      tension: 0.4,
-                      borderWidth: 0,
-                      pointRadius: 0,
-                      borderColor: "#2dce89",
-                      backgroundColor: gradientStroke1,
-                      borderWidth: 3,
-                      fill: true,
-                      data: [15, 10, 30, 25, 24, 27, 35],
-                      maxBarThickness: 6
-                  }, {
-                      label: "Temperature(°C)",
-                      tension: 0.4,
-                      borderWidth: 0,
-                      pointRadius: 0,
-                      borderColor: "#f5365c",
-                      backgroundColor: gradientStroke1,
-                      borderWidth: 3,
-                      fill: true,
-                      data: [27, 29, 25, 30, 32, 26, 25],
-                      maxBarThickness: 6
-                  }, {
-                      label: "Wind Speed(m/s)",
-                      tension: 0.4,
-                      borderWidth: 0,
-                      pointRadius: 0,
-                      borderColor: "#495057",
-                      backgroundColor: gradientStroke1,
-                      borderWidth: 3,
-                      fill: true,
-                      data: [5, 15, 22, 15, 29, 16, 12],
-                      maxBarThickness: 6
-                  }, {
-                      label: "Precipitation Risk (%)",
-                      tension: 0.4,
-                      borderWidth: 0,
-                      pointRadius: 0,
-                      borderColor: "#5e72e4",
-                      backgroundColor: gradientStroke1,
-                      borderWidth: 3,
-                      fill: true,
-                      data: [10, 35, 70, 85, 20, 12, 5],
-                      maxBarThickness: 6
-                  }],
-              },
-              options: {
-                  responsive: true,
-                  maintainAspectRatio: false,
-                  plugins: {
-                      legend: {
-                          display: false,
-                      }
-                  },
-                  interaction: {
-                      intersect: false,
-                      mode: 'index',
-                  },
-                  scales: {
-                      y: {
-                          grid: {
-                              drawBorder: false,
-                              display: true,
-                              drawOnChartArea: true,
-                              drawTicks: false,
-                              borderDash: [5, 5]
-                          },
-                          ticks: {
-                              display: true,
-                              padding: 10,
-                              color: '#fbfbfb',
-                              font: {
-                                  size: 11,
-                                  family: "Open Sans",
-                                  style: 'normal',
-                                  lineHeight: 2
-                              },wwwwwwdwdadwwwwwwwwwwwwwwwwwdawdadad
-                          }
-                      },
-                      x: {
-                          grid: {
-                              drawBorder: false,
-                              display: false,
-                              drawOnChartArea: false,
-                              drawTicks: false,
-                              borderDash: [5, 5]
-                          },
-                          ticks: {
-                              display: true,
-                              color: '#ccc',
-                              padding: 20,
-                              font: {
-                                  size: 11,
-                                  family: "Open Sans",
-                                  style: 'normal',
-                                  lineHeight: 2
-                              },
-                          }
-                      },
-                  },
-              },
-          });
-          function ReadMore(){
-              Swal.fire({
-                  title: "<strong></strong>",
-                  html: `
-                  <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h6>Last 1 month</h6>
-            </div>
-            <div class="card-body px-0 pt-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center justify-content-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Humidity(%)</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Temperature(°C)</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Wind Speed(m/s)</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder text-center opacity-7 ps-2">Precipitation Risk(%)</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-@for($i=0;$i<30;$i++)
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2">
-                          <div class="my-auto">
-                            <h6 class="mb-0 text-sm">@if(26-$i>0) {{26-$i}}-march @else {{26+30-$i}}-fevral @endif </h6>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-sm font-weight-bold mb-0">{{rand(5,50)}} %</p>
-                      </td>
-                      <td>
-                        <span class="text-xs font-weight-bold">{{rand(3,25)}} °C</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">{{rand(5,50)}} m/s</span>
-                        </div>
-                      </td>
-                      <td class="align-middle text-center">
-                        <div class="d-flex align-items-center justify-content-center">
-                          <span class="me-2 text-xs font-weight-bold">{{rand(1,100)}} °C</span>
-                        </div>
-
-                        x
-                      </td>
-                    </tr>
-@endfor
-
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-                  `,
-                  width: 900,
-                  showCloseButton: true,
-              });
-          }
-      </script>
-
+</script>
+      <script src="{{asset('weather.js')}}"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script>
 
+    getWeather("Urgench");
+</script>
 @endsection
